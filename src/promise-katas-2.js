@@ -49,7 +49,18 @@ const dog = () => fetch("dogs")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all
 //
 
-const joke = () => {};
+const joke = () => {
+    const params = [["jokes", "question"], ["jokes", undefined]];
+    const content = {};
+    const response = Promise.all(params.map(param => {
+        fetch(param[0], param[1])
+        .then(res => {
+            if (res.joke) content.question = res.joke;
+            else if (res.answer) content.answer = res.answer;
+        });
+    }));
+    return content;
+}
 
 module.exports = {
     food,

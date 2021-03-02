@@ -34,5 +34,6 @@ describe('joke', () => {
             question: "Why did the scarecrow win the Nobel Prize?", 
             answer: "Because he was out-standing in his field."
         });
+        // console.log(await joke());
     })
 });
